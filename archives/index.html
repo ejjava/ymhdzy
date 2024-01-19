@@ -1,0 +1,86 @@
+
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous"> <!-- Bootstrap 的 CSS 文件 -->
+    <link rel="stylesheet" href="./mdui/css/mdui.min.css" /> <!-- MDUI CSS -->
+    <title>YMH♡DZY- 爱老婆 弟位高！</title>
+    <meta name="keywords" content=情侣,YMH,DZY,YMH♡DZY>
+    <meta name="description" content="YMH♡DZY- 爱老婆 弟位高！">
+    <link rel="stylesheet" href="./css/loading.css"> <!-- 加载 -->
+    <link rel="stylesheet" href="./css/kongzhitai.css" /> <!-- 控制台 -->
+    <link rel="stylesheet" href="./css/tc.css" /> <!-- 弹窗 -->
+    <link rel="stylesheet" href="./css/bj.css" /> <!-- 背景 -->
+    <link rel="stylesheet" href="./css/yj.css" /> <!-- 圆角 -->
+    <link rel="stylesheet" href="./css/pc.css" /> <!-- pc显示 -->
+       <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css" />
+    <style>
+        body {
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mdui-ripple floating-button mdui-icon material-icons" onclick="toggleCard()">&#xe869;</div>
+    <div class="kongzhi text-center" id="kongzhi">
+        <div class="card-content text-center">
+            <div class="input-container">
+                <input type="text" id="imageUrlInput" placeholder="输入背景地址">
+            </div>
+            <button onclick="saveImageUrl()" type="button" class="btn btn-outline-dark w-50 text-center">更换</button>
+        </div>
+    </div>
+
+    <div id="chehuanlan"></div>
+    <br><br>
+    <!-- 内容区 -->
+    <br><br><br>
+   <h3 class="text-center">故事</h3>
+   <div class="m-4 mdui-textfield">
+ 
+  <input class="mdui-textfield-input" type="text" id="myInput" onkeyup="myFunction()" placeholder="找不到吗？请搜索吧！">
+
+</div>
+<ul id="myUL">
+
+<li><a href="./2023/1231.html" class="m-2 btn btn-outline-dark" role="button" aria-pressed="true">2023-520</a></li>
+   
+  </ul>
+   
+   
+    <!-- 内容区 -->
+    <div id="waline"></div>
+    <script type="module">
+        import {
+            init
+        } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
+
+        init({
+            el: '#waline',
+            serverURL: 'https://ejcomment.netlify.app//.netlify/functions/comment',
+        });
+    </script>
+    
+    <!-- 底部区 -->
+    <div id="footer"></div>
+    <!-- 底部区 -->
+        <script src="js/kongzhitai.js"></script><!-- 调用 -->
+    <script src="js/diaoyong1.js"></script> <!-- 调用 -->
+    <script src="http://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    <!-- 访问  -->
+    <script src="js/sitetime.js"></script><!-- 运行时间 -->
+    <!-- 一言 -->
+    <script src="js/yiyan.js"></script>
+    <!-- 选项 1：jQuery 和 Bootstrap 集成包（集成了 Popper） -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-7ymO4nGrkm372HoSbq1OY2DP4pEZnMiA+E0F3zPr+JQQtQ82gQ1HPY3QIVtztVua" crossorigin="anonymous"></script>
+    <!-- MDUI JavaScript -->
+    <script src="https://unpkg.com/mdui@1.0.2/dist/js/mdui.min.js"></script>
+<!-- Cloudflare Pages Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "aa6b6e4baddb4a1eb485b1a20fe6c9f7"}'></script><!-- Cloudflare Pages Analytics --></body>
+</html>

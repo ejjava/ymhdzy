@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link rel="stylesheet" href="./css/tc.css" /> <!-- 弹窗 -->
+    <link rel="stylesheet" href="./css/bj.css" /> <!-- 背景 -->
+    <link rel="stylesheet" href="./css/yj.css" /> <!-- 圆角 -->
+    <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css" />
+    <!-- Bootstrap 的 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <!-- MDUI CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/mdui@1.0.2/dist/css/mdui.min.css" />
+    <title>DZY's Blog- 爱生活 爱分享！</title>
+    <meta name="keywords" content=分享,blog,DZY,自制博客,博客>
+    <meta name="description" content="DZY's Blog- 爱生活 爱分享">
+    <style>
+    
+    
+        body {
+            font-weight: 700;
+            
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url(https://root-a.top/Random);
+            opacity: 0.5; /* 透明度，可以根据需要进行调整 */
+            z-index: -1; /* 将背景置于最底层 */
+        }
+    </style>
+    
+    <style>
+        /* 在电脑端，调整内容区域和侧滑栏的布局 */
+        @media (min-width: 1024px) {
+            .content {
+                margin-left: 300px; /* 调整内容区域的左边距 */
+            }
+           
+        }
+    </style>
+</head>
+<body class="text-centekkr">
+    <div id="chehuanlan"></div>
+    <br><br>
+    <!-- 内容区 -->
+    <div class="card m-2">
+        <div class="card-body">
+            <h3 class="text-center">高中法向量求法（持续更新）</h3>
+            <p class="text-center">发布于:2023.10.2 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</p>
+            <p>最新写作业时候发现法向量算的又慢又不准！于是写下了本篇文章！（用于选择填空，验算）</p>
+            <h4>方法一</h4>
+            <p>假设有两个向量A=(9,8,5) B=(2，1，1)</p>
+            <h6>①先将它们每个重复写2遍</h6>
+            <p>9 8 5 9 8 5</p>
+            <p>2 1 1 2 1 1</p>
+            <h6>②掐头去尾</h6>
+              <p> 8 5 9 8 </p>
+            <p> 1 1 2 1 </p>
+              <h6>②组成新的三组</h6>
+            <p> 8 5 &nbsp;&nbsp;5 9&nbsp;&nbsp; 9 8</p>
+            <p> 1 1 &nbsp;&nbsp;1 2&nbsp;&nbsp; 2 1</p>
+            <h6>②交叉相乘并相减</h6>
+          <p>n=(x,y,z)</p>
+          <p>X:1*8-1*5=3</p>
+          <p>X:5*2-9*1=1</p>
+          <p>X:9*1-2*8=-7</p>
+          <p>所以n=(3,1,-7)</p>
+          <h4>方法二（推荐）</h4>
+          <p>这就是叉乘(大学)吗？^0^</p>
+          <p>a=(x1,y1,z1)&nbsp;a=(x2,y2,z2)</p>
+          <p>axb=(y1z2-y2z1,-(x1z2-x2z1),x1y2-x2y1)</p>
+          <p>好复杂啊！没关系，我有口诀！</p>
+          <h5>!!!!!!求谁挡谁，求交叉相乘相减，y轴相反!!!!!!</h5>
+          <p>看不懂的评论区留言！</p>
+        </div>
+    </div>
+    <div class="card m-2">
+        <div class="card-header">
+            <h6>分类</h6>
+        </div>
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <a href="./" class="p-2 btn btn-outline-dark" role="button" aria-pressed="true">学习</a>
+            </blockquote>
+        </div>
+    </div>
+    <!-- 内容区 -->
+    <div id="waline"></div>
+    <script type="module">
+        import {
+            init
+        } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
+
+        init({
+            el: '#waline',
+            serverURL: 'https://ejcomment.netlify.app//.netlify/functions/comment',
+        });
+    </script>
+    <!-- 底部区 -->
+    <div id="footer"></div>
+    <!-- 底部区 -->
+    <script src="js/diaoyong1.js"></script> <!-- 调用 -->
+    <script src="http://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    <!-- 访问  -->
+    <script src="js/sitetime.js"></script><!-- 运行时间 -->
+    <!-- 一言 -->
+    <script src="js/yiyan.js"></script>
+    <!-- 选项 1：jQuery 和 Bootstrap 集成包（集成了 Popper） -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-7ymO4nGrkm372HoSbq1OY2DP4pEZnMiA+E0F3zPr+JQQtQ82gQ1HPY3QIVtztVua" crossorigin="anonymous"></script>
+    <!-- MDUI JavaScript -->
+    <script src="https://unpkg.com/mdui@1.0.2/dist/js/mdui.min.js"></script>
+</body>
+</html>

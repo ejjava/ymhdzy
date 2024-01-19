@@ -1,0 +1,42 @@
+
+        .card1版本d {
+            background-image: url('https://api.horosama.com/random.php');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            opacity: 0.92;
+            height: 100vh; 
+            
+             
+        }
+
+        #666 {
+            position: relative;
+            z-index: 1;
+        }
+        
+        
+          bo2代dy::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url(https://api.horosama.com/random.php);
+            opacity: 0.5; /* 透明度，可以根据需要进行调整 */
+            z-index: -1; /* 将背景置于最底层 */
+        }
+        
+        body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--background-image-url, url(https://api.horosama.com/random.php));
+  opacity: 0.5; /* 透明度，可以根据需要进行调整 */
+  z-index: -1; /* 将背景置于最底层 */
+}

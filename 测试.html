@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--background-image-url, url(https://api.horosama.com/random.php));
+  opacity: 0.5; /* 透明度，可以根据需要进行调整 */
+  z-index: -1; /* 将背景置于最底层 */
+}
+
+
+
+<style>
+body {
+  position: relative;
+  min-height: 100vh;
+}
+
+.floating-button {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.card {
+  position: fixed;
+  left: 20px;
+  bottom: -400px;
+  width: 600px;
+  height: 400px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: bottom 0.3s ease-in-out;
+  z-index: 998;
+}
+
+.card.open {
+  bottom: 20px;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.input-container {
+  margin-bottom: 20px;
+}
+
+.input-container input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+
+
+</style>
+</head>
+<body>
+
+<div class="floating-button" onclick="toggleCard()">点击</div>
+
+<div class="card" id="card">
+  <div class="card-content">
+    <div class="input-container">
+      <input type="text" id="imageUrlInput" placeholder="请输入图片地址">
+    </div>
+    
+    <button onclick="saveImageUrl()" type="button" class="btn btn-outline-dark">Dark</button>
+  </div>
+</div>
+
+<script>
+function toggleCard() {
+  var card = document.getElementById("card");
+  card.classList.toggle("open");
+}
+
+function saveImageUrl() {
+  var imageUrlInput = document.getElementById("imageUrlInput");
+  var imageUrl = imageUrlInput.value;
+
+  // 保存图片地址到本地，这里使用localStorage
+  localStorage.setItem("backgroundImageUrl", imageUrl);
+
+  // 更新背景图片
+  var body = document.querySelector("body");
+  body.style.setProperty("--background-image-url", "url(" + imageUrl + ")");
+}
+
+// 检查是否有保存的背景图片地址
+var savedImageUrl = localStorage.getItem("backgroundImageUrl");
+if (savedImageUrl) {
+  var body = document.querySelector("body");
+  body.style.setProperty("--background-image-url", "url(" + savedImageUrl + ")");
+}
+</script>
+
+</body>
+</html>

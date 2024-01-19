@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>切换浏览器黑夜模式</title>
+  <script>
+    function toggleDarkMode() {
+      var darkMode = document.body.classList.toggle('dark-mode');
+      localStorage.setItem('darkMode', darkMode);
+    }
+
+    window.onload = function() {
+      var darkMode = localStorage.getItem('darkMode');
+      if (darkMode === 'true') {
+        document.body.classList.add('dark-mode');
+      }
+    };
+  </script>
+  <style>
+    body {
+      transition: background-color 0.3s ease;
+    }
+
+    .dark-mode {
+      background-color: #333;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <h1>点击按钮切换黑夜模式</h1>
+  <button onclick="toggleDarkMode()">切换模式</button>
+</body>
+</html>
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>切换浏览器黑夜模式</title>
+  <link rel="stylesheet" href="https://cdn.staticfile.org/mdui/0.4.3/css/mdui.min.css">
+  <script src="https://cdn.staticfile.org/mdui/0.4.3/js/mdui.min.js"></script>
+  <script>
+    function toggleDarkMode() {
+      var darkMode = document.body.classList.toggle('dark-mode');
+      localStorage.setItem('darkMode', darkMode);
+
+      // 切换 MDUI 控件主题
+      if (darkMode) {
+        mdui.mutation();
+      } else {
+        mdui.mutation('.mdui-theme-accent-pink');
+      }
+    }
+
+    window.onload = function() {
+      var darkMode = localStorage.getItem('darkMode');
+      if (darkMode === 'true') {
+        document.body.classList.add('dark-mode');
+        mdui.mutation();
+      }
+    };
+  </script>
+  <style>
+    body {
+      transition: background-color 0.3s ease;
+    }
+
+    .dark-mode {
+      background-color: #333;
+      color: #fff;
+    }
+    
+    /* 修改 MDUI 控件的颜色 */
+    .mdui-color-theme-dark .mdui-textfield-focus .mdui-textfield-label,
+    .mdui-color-theme-dark .mdui-textfield-focus .mdui-textfield-input {
+      color: #fff !important;
+    }
+  </style>
+</head>
+<body class="mdui-theme-accent-pink">
+  <h1>点击按钮切换黑夜模式</h1>
+  <button onclick="toggleDarkMode()">切换模式</button>
+  
+  <!-- 使用 MDUI 的元素 -->
+  <div class="mdui-textfield">
+    <label class="mdui-textfield-label">姓名</label>
+    <input class="mdui-textfield-input" type="text"/>
+  </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+
+        /* 在电脑端，调整内容区域和侧滑栏的布局 */
+        @media (min-width: 1024px) {
+            .content {
+                margin-left: 300px; /* 调整内容区域的左边距 */
+            }
+           
+        }
+    
+   
+        /* 默认样式 */
+        #cardContainer.container {
+            max-width: 100%;
+        }
+        
+     @media screen and (min-width: 724px) {
+    #cardContainer.container {
+        max-width: 70%;
+      
+            }
+        }    
+    
