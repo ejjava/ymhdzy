@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>52秒跳转</title>
+  <style>
+    #progress-bar-container {
+      width: 100%;
+      background-color: #ddd;
+    }
+
+    #progress-bar {
+      width: 1%;
+      height: 30px;
+      background-color: #4CAF50;
+      text-align: center;
+      line-height: 30px;
+      color: white;
+    }
+  </style>
+</head>
+<body onload="startCountdown()">
+  <h1>52秒跳转</h1>
+  <p id="countdown"></p>
+  <div id="progress-bar-container">
+    <div id="progress-bar"></div>
+  </div>
+  <script type="text/javascript">
+    function startCountdown() {
+      var targetTime = 52000; // 设置目标时间为52秒
+      var countdownTimer = setInterval(function() {
+        targetTime -= 1000; // 每秒减少1000毫秒
+
+        var timeLeft = Math.max(targetTime, 0);
+        var seconds = Math.floor((timeLeft / 1000) % 60);
+
+        // 更新倒计时显示
+        document.getElementById("countdown").innerHTML = seconds + "s后跳转";
+
+        // 更新进度条
+        var progress = (timeLeft / 52000) * 100;
+        document.getElementById("progress-bar").style.width = progress + "%";
+        document.getElementById("progress-bar").innerHTML = progress.toFixed(0) + "%";
+
+        if (timeLeft <= 0) {
+          clearInterval(countdownTimer);
+          window.location.href = "https://www.example.com"; // 设置跳转链接
+        }
+      }, 1000);
+    }
+  </script>
+</body>
+</html>

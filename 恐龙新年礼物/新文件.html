@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>音乐播放弹窗</title>
+<style>
+  /* CSS样式 */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .modal {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+  }
+  
+  .modal button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .modal button:hover {
+    background-color: #45a049;
+  }
+</style>
+</head>
+<body>
+
+<!-- HTML结构 -->
+<div class="modal" id="musicModal">
+  <p>是否播放音乐？</p>
+  <button id="playMusicBtn">播放音乐</button>
+</div>
+
+<!-- JavaScript代码 -->
+<script>
+  // JavaScript逻辑
+  document.addEventListener('DOMContentLoaded', function() {
+    var modal = document.getElementById('musicModal');
+    var playMusicBtn = document.getElementById('playMusicBtn');
+    var musicUrl = 'https://m701.music.126.net/20240208191720/96638d9f6628727d68589e55216315e4/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/28481716365/e62b/b339/991f/c39f4e87d52f6b48a5837f60d84f2a38.mp3'; // 替换成你的音乐URL
+    var audioPlayer;
+
+    // 显示弹窗
+    modal.style.display = 'block';
+
+    // 播放音乐
+    playMusicBtn.onclick = function() {
+      // 创建一个新的audio元素
+      audioPlayer = new Audio(musicUrl);
+      audioPlayer.play();
+      
+      // 跳转到新页面
+      dow.location.href = 'https://example.com/new-page'; // 替换成你的新页面URL
+
+      // 设置定时器52秒后关闭音乐
+      setTimeout(function() {
+        audioPlayer.pause();
+        audioPlayer.currentTime = 0;
+      }, 52000);
+
+      // 关闭弹窗
+      modal.style.display = 'none';
+    };
+  });
+</script>
+
+</body>
+</html>
