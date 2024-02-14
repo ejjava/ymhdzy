@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title></title>
+  
+ <style>
+ 
+     
+    
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      background-color:rgba(255,189,221);
+    }
+
+    .card_xin,
+    .card_xin1 {
+      position: relative;
+      margin: 70% auto 0;
+      width: 80%;
+      height: 200px;
+      background-color: #F8ADC8;
+      box-shadow: rgba(0, 0, 0, 0.1) 0 1px 100px, rgba(0, 0, 0, 0.06) 5px 10px 10px;
+      border-radius: 5px;
+      border: 1px solid rgba(0, 0, 0, 0.125);
+      transform: translate(0%, 0%);
+      transform: rotate(5deg);
+      z-index: 3;
+    }
+
+    .card_xin1 {
+      margin-top: 0%;
+      width: 80%;
+      height: 200px;
+      z-index: 3;
+      background-color: transparent;
+      box-shadow: rgba(0, 0, 0, 0) 0 0px 0px, rgba(0, 0, 0, 0) 0 0px 0px;
+      border: 0px solid rgba(0, 0, 0, 0);
+    }
+
+    .card_xin::before {
+      content: "";
+      position: absolute;
+      top: 0px;
+      left: 2px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 170px 98px 169px;
+      border-color: transparent transparent #FF9CC7 transparent;
+      border-radius: 5px;
+      transform: translatey(-99%) rotatex(-181deg) translatey(-99%);
+      z-index: 3;
+      transform-style: preserve-3d;
+    }
+
+    .flip::before {
+      transform: rotatey(0deg) translatey(-99%);
+      z-index: 2;
+      transition: all .02s ease-in-out;
+    }
+
+    .card_xin::after {
+      content: "";
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 10px 5px 342px 200px;
+      border-color: transparent transparent #FF9CC7 transparent;
+      position: absolute;
+      border-radius: 5px;
+      top: -10px;
+      left: 21.5%;
+      transform: translateY(-18.3%) rotate(90deg);
+      z-index: 3;
+    }
+
+    .card_xin1::before {
+      content: "";
+      width: 0%;
+      height: 0;
+      border-style: solid;
+      border-width: 202px 336px 5px 5px;
+      border-color: #FF9CC7 transparent transparent transparent;
+      position: absolute;
+      border-radius: 5px;
+      top: -34%;
+      left: 49.2%;
+      transform: translate(-50%, 0) rotate(181deg);
+      z-index: 3;
+    }
+
+    #btn-letter {
+      position: relative;
+      margin: 6% auto 0;
+      width: 90%;
+      height: 150px;
+      background-color: #f5f5f5;
+      border-radius: 10px;
+      border: 1px solid rgba(0, 0, 0, 0.125);
+      transform: translate(0%, 0%);
+      z-index: 2;
+      opacity: 0;
+      animation: floatUpDown 3s ease-in-out infinite;
+    }
+
+    @keyframes floatUpDown {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-30px);
+      }
+    }
+
+    #btn-jie {
+      display: flex;
+      justify-content: center;
+      width: 70px;
+      position: relative;
+      margin: -41% auto 0;
+      left: -1%;
+      z-index: 3;
+      animation: swing 1s ease-in-out infinite;
+      cursor: pointer; 
+    }
+  
+    @keyframes swing {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-30deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+    #btn-letter {
+      width: 90%;
+      height: 160px;
+      background-color: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(10px);
+      text-align: center;
+      padding: 10px;
+      z-index:2;
+    }
+
+    p {
+      font-size: 20px;
+      font-weight: 500;
+      margin-top: 30px;
+      margin-bottom: 10px;
+      z-index:-1;
+    }
+
+    .sy,
+    .rq {
+      font-size: 15px;
+      font-weight: 300;
+      margin-top: 5px;
+      z-index:-1;
+    }
+
+    #card-zk {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0);
+      z-index: 9999;
+      display: none;
+    }
+
+    #card-zk-content {
+      position: absolute;
+      top: 46%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      width: 90%;
+      height: 80%;
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(5px);
+      padding:10px;
+      box-shadow: rgba(0, 0, 0, 0.1) 0 1px 50px,       rgba(0, 0, 0, 0.06) 5px 10px 10px;
+      border: 1px solid rgba(0, 0, 0, 0.125);
+      opacity: 0;
+      transition: transform 1s ease, opacity 1s   linear;
+    }
+
+    #card-zk-content.visible {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+    
+   .dt-gif{
+      width:100%;
+      height:200px;
+      border-radius:5px;
+      margin-bottom:-20px;
+    }
+    
+   .bti {
+      font-size:6vw;
+      font-family: 'Indie Flower', cursive;
+      font-weight: 900;
+     }
+    
+    hr {
+      height: 1px; 
+      background-color: #41555d; 
+      border: none; 
+      margin: 20px 0; 
+      border-radius:50%;
+    }
+    
+    
+   .popup {
+      position: fixed;
+      top: 44%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color:rgba(255,255,255,.8);
+      width:70%;
+      height:100px;
+      color:rgba(0,0,0,.5);
+      text-align:center; 
+      font-weight:bold;
+      border-radius: 5px;
+      box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+      display: none;
+      z-index:99999;
+    }
+
+   .popup__buttons button {
+      position:relative;
+      top:0;
+      left:12%;
+      color:rgba(0,0,0,.5);
+      font-size: 16px;
+      font-weight:bold;
+      padding: 2px 10px;
+      margin-left:3px;
+      margin-right:3px;
+      background-color:rgba(0,0,0,.05);
+      transform: translate(35px, 40px);
+      border-radius:5px;
+      border-width:0px;
+    }
+
+    p-ts{
+      position:relative;
+      top:10%;
+      left:0%;
+      font-size:5vw;
+      transform: translate(-50%, -50%);
+    }
+    
+    *{-webkit-tap-highlight-color: rgba(0,0,0,0);}input[type="checkbox"]:checked + label:after{transition: all 0.3s ease-in;}input[type="checkbox"]:not(:checked) + label:after {transition: all 0.3s ease-out;}input[type="checkbox"]:checked + label, input[type="checkbox"]:not(:checked) + label{transition: all 0.3s ease-in-out;}input[type="checkbox"]:checked + label:before,input[type="checkbox"]:checked + label i:before,input[type="checkbox"]:not(:checked) + label i:before, input[type="checkbox"]:checked + label i:after,input[type="checkbox"]:not(:checked) + label i:after,input[type="checkbox"]:not(:checked) + label:before{transition: all 0.3s ease-in-out;}input[type="radio"]:checked + label:after, input[type="radio"]:not(:checked) + label:after {transition: all 0.3s ease-in-out;}.switch_default[type="checkbox"]{display: none;}
+    
+    
+    
+    
+    @media screen and (max-width: 768px) {
+      body {
+        font-size: 14px;
+      }
+    }
+
+    @media screen and (min-width: 769px) and (max-width: 1024px) {
+      body {
+        font-size: 16px;
+      }
+    }
+
+    @media screen and (min-width: 1025px) {
+       body {
+         font-size: 18px;
+       }
+     }
+ 
+ </style>
+  
+</head>
+<body>
+<div class="card_xin">
+    <div id="btn-letter" onclick="showCardZk()">
+      <p>情人节快乐!</p>
+      <p class="sy">天天开心</p>
+      <p class="rq">2024</p>
+    </div>
+  </div>
+
+  <div class="card_xin1">
+    <img src="tp/ite.png" id="btn-jie">
+  </div>
+
+  <div id="card-zk">
+    <div id="card-zk-content">
+      <img src="https://img.tukuppt.com/bg_grid/05/78/13/sGfubmnvcu.jpg!/fh/350" class="dt-gif">
+      <p class="bti">―LOVE</p>
+      <h5>――致我的爱人@殷孟慧――</h5>
+      <hr/>
+    </div>
+  </div>
+  
+ <audio id="audio" src="music/01.mp3"></audio>
+  
+  <script>
+  
+  // Author: A strange friend
+// Nickname: 小杨
+// Edited Date: 2023-05-14
+// Hello, friend. 我叫小杨。00后小伙。
+// 感谢你的开源QQ914933408
+const btnJie = document.querySelector("#btn-jie");
+const cardXin = document.querySelector(".card_xin");
+const letter = document.querySelector("#btn-letter");
+const cardZk = document.querySelector("#card-zk");
+const cardZkContent = document.querySelector("#card-zk-content");
+
+function wait(duration) {
+  return new Promise(resolve => {
+    setTimeout(() => resolve(), duration);
+  });
+}
+
+async function handleClick() {
+  if (letter.style.opacity == 0) {
+    cardXin.classList.add("flip");
+    letter.style.zIndex = "2";
+    cardXin.style.zIndex = "3";
+    letter.style.top = "-35%";
+    letter.style.opacity = "0";
+    letter.style.visibility = "visible";
+    await wait(100);
+    letter.style.transition = "opacity 2s ease-in-out";
+    letter.style.opacity = "1";
+    letter.style.animation = "floatUpDown 3s ease-in-out infinite";
+  }
+}
+
+async function showCardZk() {
+  if (letter.style.opacity == 1) {
+    cardZk.style.display = "block";
+    cardXin.style.zIndex = "2";
+    letter.style.zIndex = "1";
+    cardXin.classList.remove("flip");
+    letter.style.top = "-35%";
+    letter.style.opacity = "0";
+    letter.style.visibility = "hidden";
+    await wait(10); 
+    cardZkContent.classList.add("visible");
+    let text = "亲爱的殷孟慧，每次和你相处的时候，我的心都会变得无比踏实和欢喜。我喜欢和你在一起的每一分每一秒，我享受我们的谈笑风生、互相陪伴的时光。我想和你共同经历人生的风风雨雨，患难与共，彼此扶持，一直走到永远。 其实全世界最幸福的童话,不过是,与你一起度过柴米油盐的岁月。愿未来所有美好的时光都和你在一起最后，赋诗一首：深知身在情长在,怅望江头江水声。";
+    let i = 0;
+    const audio = new Audio("music/bd666.mp3"); 
+    const intervalId = setInterval(() => {
+      if (i >= text.length) {
+        clearInterval(intervalId);
+        audio.pause(); 
+        return;
+      }
+      if (text[i] == "❤") {
+        cardZkContent.innerHTML += "<span class='heart-color'>" + text[i] + "</span>";
+      } else {
+        cardZkContent.innerHTML += text[i];
+      }
+      i++;
+      audio.play(); 
+    }, 184);
+  }
+}
+
+btnJie.addEventListener("click", handleClick);
+
+
+  setTimeout(function() {
+  var audio = document.getElementById("audio");
+  var popup = document.createElement("div");
+  popup.classList.add("popup");
+
+  // 新增p标签
+  var text = document.createElement("p-ts");
+  text.innerText = "是否选择播放音乐";
+  popup.appendChild(text);
+
+  var buttons = document.createElement("div");
+  buttons.classList.add("popup__buttons");
+
+  var playBtn = document.createElement("button");
+  playBtn.innerText = "是";
+
+  var pauseBtn = document.createElement("button");
+  pauseBtn.innerText = "否";
+
+  var moreBtn = document.createElement("button");
+  moreBtn.innerText = "→";
+
+  buttons.appendChild(playBtn);
+  buttons.appendChild(pauseBtn);
+  buttons.appendChild(moreBtn);
+
+  popup.appendChild(buttons);
+  document.body.appendChild(popup);
+
+  playBtn.addEventListener("click", function() {
+    audio.play();
+    popup.style.display = "none";
+  });
+
+  pauseBtn.addEventListener("click", function() {
+    audio.pause();
+    popup.style.display = "none";
+  });
+
+  moreBtn.addEventListener("click", function() {
+    window.location.href = "mqqapi://card/show_pslcard?src_type=internal&version=1&uin=3334832289&card_type=person&source=qrcode";
+  });
+
+  popup.style.display = "block";
+}, 500);
+
+
+if (window.innerWidth <= 768) {
+  
+  var link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = 'style/cell phone.css';
+  document.head.appendChild(link);
+} else {
+  
+  var link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = 'style/pc.css';
+  document.head.appendChild(link);
+}
+
+
+var btn = document.getElementById("btn-jie");
+var isPaused = false;
+btn.onclick = function() {
+  if (isPaused) {
+    btn.style.animationPlayState = "running";
+    isPaused = false;
+  } else {
+    btn.style.animationPlayState = "paused";
+    isPaused = true;
+  }
+};
+
+
+
+
+  
+  </script>
+</body>
+
+</html>
